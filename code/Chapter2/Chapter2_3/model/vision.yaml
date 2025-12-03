@@ -1,0 +1,52 @@
+camera:
+  type: realsense
+  intrin:
+    fx: 645.060547
+    fy: 644.257935
+    cx: 649.562866
+    cy: 373.498932
+    distortion_model: 0
+    distortion_coeffs:
+      []
+  extrin:
+    -
+      - -0.0011315943
+      - -0.195165321
+      - 0.980769694
+      - -0.00802230556
+    -
+      - -0.999941111
+      - -0.0103687942
+      - -0.00321702077
+      - 0.0115252826
+    -
+      - 0.010797251
+      - -0.980715513
+      - -0.19514209
+      - -0.0562703013
+    -
+      - 0
+      - 0
+      - 0
+      - 1
+  pitch_compensation: -1.4
+  yaw_compensation: -1.4
+  z_compensation: 0
+detection_model:
+  model_path: model/best.onnx
+  confidence_threshold: 0.2
+  nms_threshold: 0.4
+  classnames: [Ball, Goalpost, Person, LCross, TCross, XCross, PenaltyPoint, Opponent, BRMarker]
+  post_process:
+    single_ball_assumption: false
+    confidence_thresholds:
+      Ball: 0.4
+      Goalpost: 0.4
+      Person: 0.4
+      LCross: 0.3
+      TCross: 0.3
+      XCross: 0.3
+      PenaltyPoint: 0.3
+      Opponent: 0.4
+      BRMarker: 0.2
+
